@@ -1,0 +1,30 @@
+/*  INFO Estructura escollida:
+
+    Taula de dispersio. Encadenaments indirectes.
+    Amb variable com a clau i 
+    
+        ______
+        |  0  |->[var, expressio]->[var, expressio]
+        |     |
+        |     |->[var, expressio]
+        |_M-1 |
+        .......
+
+
+    Hem escollit aquesta estructura ja que les insercions a cada posicio de la 
+    llista es fan al principi de cada posicio de la taula de nodes. Per tant tindrem un cost constant O(1)
+    al realitzar les operacions d'insercio y d'eliminacio de la hash table. 
+
+*/
+
+typedef unsigned int nat;
+
+struct node_hash {
+    string _var; //Clau a la que se li assigna una expressio.
+    expressio _expr; // Valor: Expressio que de la variable assignada.
+    node_hash *_seg; // Per accedir al següent sinònim encadenat. (Funciona com una simple linked list).
+};
+
+node_hash **_taula; // taula amb punters a les llistes
+nat _M ; // mida de la taula
+nat _quants ; // nº d’elements guardats al diccionari

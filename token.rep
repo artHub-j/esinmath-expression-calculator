@@ -1,0 +1,20 @@
+/*  INFO Estructura escollida:
+
+    void *p_element: 
+        Es necessati utilitzar un punter a void per poder demanar la memoria necessaria per cada tipus de token:
+        Hi ha varis tokens amb diferents valors tals com:
+
+        token::CT_ENTERA:
+            Necessita un p_element de tipus int per poder treballar amb el seu valor enter.
+
+        token::CT_REAL:
+            Necessita un p_element de tipus double per poder treballar amb el seu valor real.
+
+        etc.
+
+    token::codi _codi: 
+        S'ha de guardar el codi de cada token per poder tenir coneixement del tipus de dades que conté.
+*/
+
+void *p_element;
+token::codi _codi;

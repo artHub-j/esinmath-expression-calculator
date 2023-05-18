@@ -1,0 +1,15 @@
+/*  INFO Estructura escollida:
+
+    Es necessiten dos enters per guardar el numerador i denominador de cada racional.
+
+    int _num: Guardem el numerador del racional construit.
+    int _den: Guardem el denominador del racional construit.
+    
+*/
+
+int _num;
+int _den;
+
+/* Funció que retorna el valor real del racional r (r._num/r._den). */
+static double valor_decimal(const racional &r);
+

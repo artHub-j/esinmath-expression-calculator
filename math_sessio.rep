@@ -1,0 +1,13 @@
+/*  INFO Estructura escollida:
+
+    variables _dicc: Cal guardar el diccionari utilitzat
+    bool _estat_sessio: Cal guardar l'estat de la sessio.
+
+*/
+
+variables _dicc;
+bool _estat_sessio;
+
+/*	Metode auxiliar per sustituir el token VAR_PERCENTATGE a lin per els tokens de l2.	*/
+list<token> sustituir_tokens (list<token> &lin, list<token> &l2);
+

@@ -1,0 +1,84 @@
+/*  INFO Estructura escollida:
+
+    // Arbre binari adaptat amb punter a l'arrel; cada node guarda com a informacio (info) un token:
+    //     - Si un operador es unari nomes crea un fill (f_dret).
+
+    //             op_unari <-_arrel
+    //                /\
+    //                  f_dret
+
+    //     - Si un operador es binari es creen ambdos fills (f_esq i f_dret).
+
+    //             op_binari <-_arrel
+    //                /   \
+    //             f_esq  f_dret
+
+    // S'ha escollit aquesta estructura ja que el maxim de fills que pot tenir cada node es 2.
+*/
+
+struct node {
+    node* f_esq;
+    node* f_dret;
+    token info;
+};
+node* _arrel;
+
+/* Metode auxiliar utilitzat a vars(): Es fa el recorregut en preordre a partir de 
+  node p. Si p es un token del tipus VARIABLE es guarda el seu identificador a la llista l. */
+static void rec_preordre(node *p, list<string> &l);
+
+/* 	Metode auxiliar utilitzat a operator==, simplify_subtree(node * p), 
+	simplify_one_step(bool & simplificat, node *p) i simplify(node *p):
+	Compara dues expressions començant per les seves respectives arrels a i b.  */
+static bool arbresIguals(node *a, node *b);
+
+/*	Copia tots els nodes de l'expressio que comenca per node m
+	i guarda el seu valor a l'expressio implicita.	*/
+static node* copia_nodes(node* m);
+
+/*	Esborra tots els nodes de l'expressio que comenca per node m.	*/
+static void esborra_nodes(node* m);
+
+/*	Constructora auxiliar de expressio a partir de dues expressions i un token.	*/
+expressio(expressio &exp_esq, const token &t, expressio &exp_dret);
+
+/*	Indica si el token t es un operador unari.	*/
+static bool es_operador_unari(token t);
+
+/*	Indica si el token t es un operador binari.	*/
+static bool es_operador_binari(token t);
+
+/*	Metode auxiliar utilitzat a imprimir_expressio().
+	Imprimeix l'expressio fent un recorregut en
+	inordre especular. Cada linia representa un fill.	*/
+static void impr(node *n, int nivell);
+
+/*	Imprimeix l'expressio e fent ús de la funció impr().    */
+static void imprimir_expressio(const expressio &e);
+
+/*	Transforma el token it en un string.	*/
+static string token_tostring (const token &it);
+
+/*	Comproba si l'iterador it i el seu següent element de la llista l són sintàcticament correctes.	*/
+static bool consecutius_valids(list<token>::const_iterator it, const list<token> &l); 
+
+/*	Metode auxiliar utilitzat a apply_substitution().
+	Comprova si la variable v està al node p, i si es així substitueix aquest node per l'arrel de l'expressio e.	*/
+static node* cerca(node *p, const string & v, const expressio & e);
+
+/*	Metode auxiliar utilitzat a apply_substitution().
+	Comprova si la variable v està al node p, i si es així substitueix aquest node per l'arrel de l'expressio e.	*/
+void list_of_tokens_aux(node *p, list<token> &l) const;
+
+/*	Metode auxilar que conte totes les regles matematiques per simplificar expressions.	*/
+node* simplify_subtree(node * p);
+
+/*	Metode recursiu auxiliar per aplicar simplificacions matematiques sobre una expressio
+	en un pas.	Es recorre l'arbre en postordre.	*/
+node* simplify_one_step(bool & simplificat, node *p);
+
+/*	Metode per simplificar una expressio. Es fa el recorregut en postordre.	*/
+node* simplify(node *p);
+
+/*	Metode auxiliar per comprovar l'associativitat entre operadors amb mateixa precedencia.	*/
+static bool aso_esq_dre(token top, token it);

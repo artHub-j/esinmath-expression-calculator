@@ -1,0 +1,19 @@
+
+11 token El nom de la variable no es valid.
+12 token La constructora per aquest token no es l'adequada.
+13 token Aquesta consultora del token no es apropiada.
+14 token La precedencia es defineix entre operadors.
+
+21 racional El denominador es zero.
+
+31 expressio Error sintactic.
+32 expressio Negatiu elevat a no enter.
+33 expressio Divisio per zero.
+34 expressio Logaritme de no positiu.
+35 expressio Arrel quadrada de negatiu.
+
+51 math_sessio La sintaxi de la comanda es incorrecta.
+52 math_sessio Assignacio amb circularitat infinita.
+
+61 math_io No es troba un nou token valid.
+
