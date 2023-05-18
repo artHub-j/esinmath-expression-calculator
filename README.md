@@ -1,5 +1,5 @@
 # esinmath-expression-calculator
-A small symbolic computing program that calculates and avaluates complex mathematical expressions using an adapted binary tree and the Shunting Yard Algorithm.
+[UPC PROJECT] A small symbolic computing program that calculates and avaluates complex mathematical expressions using an adapted binary tree and the Shunting Yard Algorithm.
 
 1. Once the expression is read, esinmath-expression-calculator decomposes the expression into a sequence
 of tokens; each token is a literal value (an integer, rational, or comma constant
